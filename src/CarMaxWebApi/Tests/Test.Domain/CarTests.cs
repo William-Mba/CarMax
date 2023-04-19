@@ -8,7 +8,7 @@ namespace Test.Domain
     [TestFixture]
     public class CarTests
     {
-        public Car? _car;
+        private Car _car = null!;
 
         [SetUp]
         public void Setup()
@@ -19,7 +19,7 @@ namespace Test.Domain
         [Test]
         public void TestSetAndGetId()
         {
-            _car!.id = GivenCar().id;
+            _car.id = GivenCar().id;
 
             Assert.That(_car.id, Is.EqualTo(GivenCar().id));
 
@@ -28,7 +28,7 @@ namespace Test.Domain
         [Test]
         public void TestSetAndGetBrand()
         {
-            _car!.Brand = GivenCar().Brand;
+            _car.Brand = GivenCar().Brand;
 
             Assert.That(_car.Brand, Is.EqualTo(GivenCar().Brand));
         }
@@ -36,7 +36,7 @@ namespace Test.Domain
         [Test]
         public void TestSetAndGetCostType()
         {
-            _car!.CostType = GivenCar().CostType;
+            _car.CostType = GivenCar().CostType;
 
             Assert.That(_car.CostType, Is.EqualTo(GivenCar().CostType));
         }
@@ -44,7 +44,7 @@ namespace Test.Domain
         [Test]
         public void TestSetAndGetDescription()
         {
-            _car!.Description = GivenCar().Description;
+            _car.Description = GivenCar().Description;
 
             Assert.That(_car.Description, Is.EqualTo(GivenCar().Description));
         }
@@ -52,7 +52,7 @@ namespace Test.Domain
         [Test]
         public void TestSetAndGetImageGallery()
         {
-            _car!.ImageGallery = GivenCar().ImageGallery;
+            _car.ImageGallery = GivenCar().ImageGallery;
 
             Assert.That(_car.ImageGallery, Is.EqualTo(GivenCar().ImageGallery));
         }
@@ -60,7 +60,7 @@ namespace Test.Domain
         [Test]
         public void TestSetAndGetLocation()
         {
-            _car!.Location = GivenCar().Location;
+            _car.Location = GivenCar().Location;
 
             Assert.That(_car.Location, Is.EqualTo(GivenCar().Location));
         }
@@ -68,7 +68,7 @@ namespace Test.Domain
         [Test]
         public void TestSetAndGetModel()
         {
-            _car!.Model = GivenCar().Model;
+            _car.Model = GivenCar().Model;
 
             Assert.That(_car.Model, Is.EqualTo(GivenCar().Model));
         }
@@ -76,7 +76,7 @@ namespace Test.Domain
         [Test]
         public void TestSetAndGetRentCost()
         {
-            _car!.RentCost = GivenCar().RentCost;
+            _car.RentCost = GivenCar().RentCost;
 
             Assert.That(_car.RentCost, Is.EqualTo(GivenCar().RentCost));
         }
@@ -84,7 +84,7 @@ namespace Test.Domain
         [Test]
         public void TestSetAndGetYear()
         {
-            _car!.Year = GivenCar().Year;
+            _car.Year = GivenCar().Year;
 
             Assert.That(_car.Year, Is.EqualTo(GivenCar().Year));
         }

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\CarMax.Application\CarMax.Application.csproj" />
+    <ProjectReference Include="..\CarMax.Infrastructure\CarMax.Infrastructure.csproj" />
+    <ProjectReference Include="..\CarMax.Persistence\CarMax.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

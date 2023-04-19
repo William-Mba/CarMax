@@ -1,0 +1,16 @@
+trigger: none
+
+parameters:
+  - name: MajorVersion
+    type: number
+    default: 1
+  - name: MinorVersion
+    type: number
+    default: 0
+    
+variables:
+  buildDate: $(Get-Date -Format yyyyMMdd:hhmmss)
+  revision: $(Rev:r)
+  buildNumber: $(Build.BuildID)
+
+  version: ${{ parameters.MajorVersion }}.${{ parameters.MinorVersion }}.$(revision).$(buildNumber)

@@ -4,8 +4,7 @@ trigger:
   branches:
     include:
       - master
-      - develop/*
-
+      
 pool:
   name: CarMax
   vmImage: ubuntu-latest

@@ -1,7 +1,7 @@
 parameters:
   - name: TestProjects
     type: string
-    default: '**/*[Tt]ests/*.csproj'
+    default: '**/*[Tt]ests/[Tt]est*/*.csproj'
   - name: ProjectName
     type: string
     default: 'CarMaxApi'
@@ -17,11 +17,11 @@ jobs:
     displayName: "Test" 
     inputs:
       command: test
-      projects: '${{ parameters.TestProjects }}'
+      projects: ${{ parameters.TestProjects }}
       arguments: '--configuration ${{ parameters.BuildConfiguration }}'
 
   - task: WhiteSource@21
-    displayName: '[Mend] Check Compliance'
+    displayName: '[Mend] Verify Compliancy'
     inputs:
       cwd: '$(System.DefaultWorkingDirectory)'
       projectName: ${{ parameters.ProjectName }}

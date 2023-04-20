@@ -1,5 +1,5 @@
 parameters: 
-  - name: SonarCloud
+  - name: ServiceConnection
     type: string
     default: 'SonarCloud'
   - name: Organisation
@@ -17,6 +17,7 @@ parameters:
 
 steps:
   - task: SonarCloudPrepare@1
+    displayName: '[SonarCloud] Prepare Analysis'
     inputs:
       SonarCloud: ${{ parameters.ServiceConnection }}
       organization: ${{ parameters.Organisation }}

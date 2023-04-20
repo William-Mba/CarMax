@@ -1,0 +1,68 @@
+trigger:
+  branches:
+    include:
+      - master
+      - release/*
+    exclude:
+      - release/old
+
+pool:
+  name: CarMax
+  vmImage: ubuntu-latest
+
+parameters:
+  - name: MajorVersion
+    type: number
+    default: 1
+  - name: MinorVersion
+    type: number
+    default: 0
+  - name: Projects
+    type: string
+    default: '**/*.sln'
+  - name: ProjectName
+    type: string
+    default: 'CarMaxApi'
+  - name: TestProjects
+    type: string
+    default: '**/*[Tt]ests/*.csproj'
+  - name: AssemblyVersion
+    type: string
+    default: "0.0.0.0"
+  - name: WorkingDirectory
+    type: string
+    default: $(Build.SourcesDirectory)
+  - name: BuildConfiguration
+    type: string
+    default: Release
+
+variables:
+  template: devops/variables/version.yml
+  parameters:
+    MajorVersion: ${{ parameters.MajorVersion }}
+    MinorVersion: ${{ parameters.MinorVersion }}
+
+stages:
+- stage: Build
+  jobs:
+  - template: devops/cicd/job.build.dotnet.yml
+    parameters:
+      JdkFilePath: ${{ parameters.JdkFilePath }}
+      DotnetSdkVersion: ${{ parameters.DotnetSdkVersion }}
+      Projects: ${{ parameters.Projects }}
+      BuildConfiguration: ${{ parameters.BuildConfiguration }}
+
+- stage: Test
+  jobs:
+  - template: devops/cicd/job.test.dotnet.yml
+    parameters:
+      TestProjects: ${{ parameters.TestProjects }}
+      ProjectName: ${{ parameters.ProjectName }}
+      BuildConfiguration: ${{ parameters.BuildConfiguration }}
+
+- stage: Publish
+  jobs:
+    - template: devops/cicd/job.publish.dotnet.yml
+      parameters:
+        ProjectName: ${{ parameters.ProjectName }}
+        BuildConfiguration: ${{ parameters.BuildConfiguration }}

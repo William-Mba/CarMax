@@ -6,8 +6,6 @@ trigger:
       - develop/*
       - feature/*
       - fix/*
-    exclude:
-      - release/old
 
 pool:
   name: CarMax

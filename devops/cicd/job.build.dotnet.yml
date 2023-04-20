@@ -35,7 +35,7 @@ jobs:
     displayName: 'Restore packages'
     inputs:
       command: 'restore'
-      projects: '${{ parameters.Projects }}'
+      projects: ${{ parameters.Projects }}
 
   - template: task.prepare.sonacloud.yml
     displayName: '[SonarCloud] Prepare Analysis'
@@ -43,7 +43,7 @@ jobs:
   - task: DotNetCoreCLI@2
     displayName: "Build project" 
     inputs:
-      projects: '${{ parameters.Projects }}'
+      projects: ${{ parameters.Projects }}
       arguments: '--configuration ${{ parameters.BuildConfiguration }} -p:VersionPrefix=$(version)'
 
   - task: SonarCloudAnalyze@1

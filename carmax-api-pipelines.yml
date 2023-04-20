@@ -2,10 +2,7 @@ trigger:
   branches:
     include:
       - master
-      - release/*
       - develop/*
-      - feature/*
-      - fix/*
 
 pool:
   name: CarMax

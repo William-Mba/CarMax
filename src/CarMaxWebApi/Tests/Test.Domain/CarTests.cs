@@ -88,7 +88,7 @@ namespace Test.Domain
 
             Assert.That(_car.Year, Is.EqualTo(GivenCar().Year));
         }
-        public Car GivenCar()
+        private static Car GivenCar()
         {
             var images = new Dictionary<string, string>() {
                 { "Front", "imageUri_1" },

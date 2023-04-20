@@ -21,4 +21,4 @@ jobs:
         displayName: 'Build Artifact'
         inputs:
           pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-          artifactName: ${{ parameters.ProjectName }}.$(version)
+          artifactName: ${{ parameters.ProjectName }}.$(versionNumber)

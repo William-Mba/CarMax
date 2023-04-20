@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/10ference/CarMax/_apis/build/status%2Fcarmax-api-pipeline?branchName=master)](https://dev.azure.com/10ference/CarMax/_build/latest?definitionId=15&branchName=master)
+
 # Introduction 
 CarMax is a fictive car rental business based in Montreal. 
 

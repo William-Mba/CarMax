@@ -6,7 +6,5 @@ parameters:
 variables:
   MajorMinorVersion: ${{ parameters.MajorMinorVersion }}
   PatchVersion: $[counter(variables['MajorMinorVersion'], 0)]
-  buildDate: $(Get-Date -Format yyyyMMdd:hhmmss)
-  buildNumber: $(Build.BuildId)
 
-  versionNumber: $(MajorMinorVersion).$(PatchVersion).$(buildNumber)
+  versionNumber: $(MajorMinorVersion).$(PatchVersion).$(Build.BuildId)

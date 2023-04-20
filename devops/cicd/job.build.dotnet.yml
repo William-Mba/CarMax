@@ -38,7 +38,6 @@ jobs:
       projects: ${{ parameters.Projects }}
 
   - template: task.prepare.sonacloud.yml
-    displayName: '[SonarCloud] Prepare Analysis'
 
   - task: DotNetCoreCLI@2
     displayName: "Build project" 

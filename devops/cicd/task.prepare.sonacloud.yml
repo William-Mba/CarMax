@@ -17,6 +17,7 @@ parameters:
 
 steps:
   - task: SonarCloudPrepare@1
+    displayName: '[SonarCloud] Prepare Analysis'
     inputs:
       SonarCloud: ${{ parameters.ServiceConnection }}
       organization: ${{ parameters.Organisation }}

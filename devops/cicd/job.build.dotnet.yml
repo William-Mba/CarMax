@@ -37,7 +37,7 @@ jobs:
       command: 'restore'
       projects: '${{ parameters.Projects }}'
 
-  - template: sonacloud.prepare.yml
+  - template: task.prepare.sonacloud.yml
     displayName: '[SonarCloud] Prepare Analysis'
 
   - task: DotNetCoreCLI@2

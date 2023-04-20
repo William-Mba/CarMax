@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/10ference/CarMax/_apis/build/status%2Fcarmax-api-pipeline?branchName=master)](https://dev.azure.com/10ference/CarMax/_build/latest?definitionId=15&branchName=master)
+
 # Introduction 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 

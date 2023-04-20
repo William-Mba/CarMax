@@ -8,3 +8,4 @@ variables:
   PatchVersion: $[counter(variables['MajorMinorVersion'], 0)]
 
   versionNumber: $(MajorMinorVersion).$(PatchVersion).$(Build.BuildId)
+

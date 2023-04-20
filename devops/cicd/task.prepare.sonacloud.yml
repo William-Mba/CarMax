@@ -1,5 +1,5 @@
 parameters: 
-  - name: SonarCloud
+  - name: ServiceConnection
     type: string
     default: 'SonarCloud'
   - name: Organisation

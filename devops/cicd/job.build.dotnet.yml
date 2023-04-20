@@ -43,7 +43,7 @@ jobs:
     displayName: "Build project" 
     inputs:
       projects: ${{ parameters.Projects }}
-      arguments: '--configuration ${{ parameters.BuildConfiguration }} -p:VersionPrefix=$(version)'
+      arguments: '--configuration ${{ parameters.BuildConfiguration }} -p:VersionPrefix=$(versionNumber)'
 
   - task: SonarCloudAnalyze@1
     displayName: '[SonarCloud] Analyze Quality'

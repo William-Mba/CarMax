@@ -1,13 +1,12 @@
 parameters:
-  - name: MajorVersion
-    type: number
-    default: 1
-  - name: MinorVersion
-    type: number
-    default: 0
+  - name: MajorMinorVersion
+    type: string
+    default: '1.0'
     
 variables:
+  MajorMinorVersion: ${{ parameters.MajorMinorVersion }}
+  PatchVersion: $[counter(variables['MajorMinorVersion'], 0)]
   buildDate: $(Get-Date -Format yyyyMMdd:hhmmss)
   buildNumber: $(Build.BuildId)
 
-  version: ${{ parameters.MajorVersion }}.${{ parameters.MinorVersion }}.$(Rev:r).$(buildNumber)
+  versionNumber: $(MajorMinorVersion).$(PatchVersion).$(buildNumber)

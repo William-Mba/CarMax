@@ -1,0 +1,55 @@
+parameters:
+- name: JdkFilePath
+  type: string
+  default: 'C:\agents\svr-cr\jdk-11.0.18_windows-x64_bin.zip'
+- name: DotnetSdkVersion
+  type: string
+  default: 6.x
+- name: Projects
+  type: string
+  default: '**/*.sln'
+- name: BuildConfiguration
+  type: string
+  default: Release
+
+jobs:
+- job: Build
+  steps:
+
+  - task: JavaToolInstaller@0
+    displayName: 'Use JDK'
+    inputs:
+      versionSpec: '11'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'LocalDirectory'
+      jdkFile: ${{ parameters.JdkFilePath }}
+      cleanDestinationDirectory: false
+
+  - task: UseDotNet@2
+    displayName: 'Use .NET'
+    inputs:
+      packageType: 'sdk'
+      version: ${{ parameters.DotnetSdkVersion }}
+
+  - task: DotNetCoreCLI@2
+    displayName: 'Restore packages'
+    inputs:
+      command: 'restore'
+      projects: '${{ parameters.Projects }}'
+
+  - template: sonacloud.prepare.yml
+    displayName: '[SonarCloud] Prepare Analysis'
+
+  - task: DotNetCoreCLI@2
+    displayName: "Build project" 
+    inputs:
+      projects: '${{ parameters.Projects }}'
+      arguments: '--configuration ${{ parameters.BuildConfiguration }} -p:VersionPrefix=$(version)'
+
+  - task: SonarCloudAnalyze@1
+    displayName: '[SonarCloud] Analyze Quality'
+
+  - task: SonarCloudPublish@1
+    displayName: "[SonarCloud] Publish Result" 
+    inputs:
+      pollingTimeoutSec: '300'

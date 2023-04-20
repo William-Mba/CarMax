@@ -1,0 +1,27 @@
+parameters:
+  - name: TestProjects
+    type: string
+    default: '**/*[Tt]ests/*.csproj'
+  - name: ProjectName
+    type: string
+    default: 'CarMaxApi'
+  - name: BuildConfiguration
+    type: string
+    default: Release
+ 
+jobs:
+- job: Test
+  steps:
+  
+  - task: DotNetCoreCLI@2
+    displayName: "Test" 
+    inputs:
+      command: test
+      projects: '${{ parameters.TestProjects }}'
+      arguments: '--configuration ${{ parameters.BuildConfiguration }}'
+
+  - task: WhiteSource@21
+    displayName: '[Mend] Check Compliance'
+    inputs:
+      cwd: '$(System.DefaultWorkingDirectory)'
+      projectName: ${{ parameters.ProjectName }}

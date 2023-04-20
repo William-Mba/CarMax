@@ -1,0 +1,24 @@
+parameters:
+  - name: ProjectName
+    type: string
+    default: 'CarMaxApi'
+  - name: BuildConfiguration
+    type: string
+    default: Release
+ 
+jobs:
+  - job: Publish
+    steps:
+
+      - task: DotNetCoreCLI@2
+        displayName: 'Publish ${{ parameters.BuildConfiguration }}'
+        inputs:
+          command: 'publish'
+          publishWebProjects: true
+          arguments: '-o $(Build.ArtifactStagingDirectory)'
+
+      - task: PublishBuildArtifacts@1
+        displayName: 'Build Artifact'
+        inputs:
+          pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          artifactName: ${{ parameters.ProjectName }}.$(version)

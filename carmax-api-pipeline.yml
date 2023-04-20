@@ -4,7 +4,7 @@ trigger:
   branches:
     include:
       - master
-      
+
 pool:
   name: CarMax
   vmImage: ubuntu-latest
@@ -33,7 +33,7 @@ parameters:
     default: Release
   - name: JdkFilePath
     type: string
-    default: 'C:\agents\svr-cr\jdk-11.0.18_windows-x64_bin.zip'
+    default: 'C:\agents\tools\jdk-11.0.18_windows-x64_bin.zip'
   - name: DotnetSdkVersion
     type: string
     default: 6.x

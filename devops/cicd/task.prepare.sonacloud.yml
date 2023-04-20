@@ -1,0 +1,25 @@
+parameters: 
+  - name: SonarCloud
+    type: string
+    default: 'SonarCloud'
+  - name: Organisation
+    type: string
+    default: '10ference'
+  - name: ScannerMode
+    type: string
+    default: 'MSBuild'
+  - name: ProjectKey
+    type: string
+    default: '10ference_CarMax'
+  - name: ProjectName
+    type: string
+    default: 'CarMax'
+
+steps:
+  - task: SonarCloudPrepare@1
+    inputs:
+      SonarCloud: ${{ parameters.ServiceConnection }}
+      organization: ${{ parameters.Organisation }}
+      scannerMode: ${{ parameters.ScannerMode }}
+      projectKey: ${{ parameters.ProjectKey }}
+      projectName: ${{ parameters.ProjectName }}

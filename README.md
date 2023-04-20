@@ -1,7 +1,7 @@
 [![Build Status](https://dev.azure.com/10ference/CarMax/_apis/build/status%2Fcarmax-api-pipeline?branchName=master)](https://dev.azure.com/10ference/CarMax/_build/latest?definitionId=15&branchName=master)
 
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+CarMax is a fictive car rental business based in Montreal. 
 
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:

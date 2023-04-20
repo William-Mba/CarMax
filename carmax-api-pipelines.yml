@@ -35,10 +35,10 @@ parameters:
     default: Release
 
 variables:
-  template: devops/variables/version.yml
-  parameters:
-    MajorVersion: ${{ parameters.MajorVersion }}
-    MinorVersion: ${{ parameters.MinorVersion }}
+  - template: devops/variables/version.yml
+    parameters:
+      MajorVersion: ${{ parameters.MajorVersion }}
+      MinorVersion: ${{ parameters.MinorVersion }}
 
 stages:
 - stage: Build

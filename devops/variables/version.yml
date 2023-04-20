@@ -8,7 +8,6 @@ parameters:
     
 variables:
   buildDate: $(Get-Date -Format yyyyMMdd:hhmmss)
-  revision: ${{ variables['Rev:r'] }}
   buildNumber: $(Build.BuildId)
 
-  version: ${{ parameters.MajorVersion }}.${{ parameters.MinorVersion }}.$(revision).$(buildNumber)
+  version: ${{ parameters.MajorVersion }}.${{ parameters.MinorVersion }}.$(Rev:r).$(buildNumber)

@@ -1,4 +1,4 @@
-name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)_$(Rev:.r)
+name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)_$(Time:hhmmss)_$(Rev:.r)
 
 trigger:
   branches:
@@ -22,7 +22,7 @@ parameters:
     default: 'CarMaxApi'
   - name: TestProjects
     type: string
-    default: '**/*[Tt]ests/*.csproj'
+    default: '**/*[Tt]ests/[Tt]est*/*.csproj'
   - name: AssemblyVersion
     type: string
     default: "0.0.0.0"

@@ -1,7 +1,7 @@
 parameters:
   - name: TestProjects
     type: string
-    default: '**/*[Tt]ests/*.csproj'
+    default: '**/*[Tt]ests/[Tt]est*/*.csproj'
   - name: ProjectName
     type: string
     default: 'CarMaxApi'
